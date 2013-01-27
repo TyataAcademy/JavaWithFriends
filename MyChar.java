@@ -1,6 +1,6 @@
 
 public class MyChar implements CharSequence {
-
+	
 	public char charAt(int index) {
 		return 0;
 	}
@@ -16,24 +16,29 @@ public class MyChar implements CharSequence {
 	public String toString(){
 		return null;
 	}
+    
+	//method to reverse string	
+	public static String reverse(String sampleString){
+		int sampleStringLength = sampleString.length();
+		
+		//output original string using subSequence 
+		CharSequence originalSampleString = sampleString.subSequence(0, sampleStringLength);
+		System.out.print(originalSampleString.toString());
+
+		for (int i = 0; i < sampleStringLength; i++) {
+			System.out.print(sampleString.charAt((sampleStringLength-1) - i));
+		}
+		return sampleString;
+	}
 
 	public static void main(String[] args) {
 		
-			String sampleString = "\"testing string reversal\"";
-			int sampleStringLength = sampleString.length();
-			
-			//output original string using subSequence 
-			System.out.print("This is the original text: ");
-			CharSequence originalSampleString = sampleString.subSequence(0, sampleStringLength);
-			System.out.print(originalSampleString.toString());
-			
-			
-			//output reverse text by looping through string using charAt
-			System.out.print("\n\nThis is the original text in reverse: " );
-			for (int i = 0; i < sampleStringLength; i++) {
-				System.out.print(sampleString.charAt((sampleStringLength-1) - i));
-			}
-	
+		System.out.print("This is the original text: ");
+		String testString = "String reversal using CharSequence interface";
+		
+		System.out.print("\n\nThis is the original text in reverse: " );
+		MyChar.reverse(testString);
+		
 	}
 
 }
